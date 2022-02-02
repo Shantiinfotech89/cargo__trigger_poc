@@ -1,0 +1,23 @@
+<div style="display: none;" class="">
+  <div id="flags">
+    <div id="australia" class="flag" title="Autstralia">A</div>
+    <div id="bangla" class="flag" title="bangla">B</div>
+    <div id="china" class="flag" title="China">C</div>
+    <div id="denmark" class="flag" title="america">D</div>  
+    <div id="one" class="flag" title="one">1</div> 
+    <div id="two" class="flag" title="two">2</div> 
+  </div>
+  <img class="map-image drag-area" src="https://www.wpclipart.com/dl.php?img=/geography/world_maps/world_map_basic_color.png" alt="" width="520" height="289" usemap="#Map" />
+  <map name="Map">
+  <area class="china" shape="rect"  href="#" target="_self">
+  <area shape="rect" class="australia" target="_self">
+  <area shape="rect" class="bangla" target="_self"> 
+  <area shape="rect" class="denmark" target="_self">
+  <area shape="rect" class="one" target="_self">
+  <area shape="rect" class="two" target="_self">
+</map>
+</div>
+<router-outlet></router-outlet>
+<a [routerLink]="['/litegraph']" >
+  link to user component
+</a>

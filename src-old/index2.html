@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AngularTourOfHeroes</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="litegraph.css">
+  <link rel="stylesheet" href="assets/litegraph.css">
+  <script type="text/javascript" src="assets/litegraph.js"></script> 
+
+</head>
+<body>
+   <app-root></app-root>
+   <canvas id='mycanvas' width='2048' height='720' style='border: 1px solid'></canvas> 
+  <app-root></app-root>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+  <script>
+    var graph = new LGraph();
+    var canvas = new LGraphCanvas("#mycanvas", graph);
+
+
+
+
+
+ function Stage1tag() {
+   this.addInput("Tags","number");
+   this.a4da22e13e6f =  this.addWidget("toggle",'a4da22e13e6f', true, function(v){
+      console.log(v);
+
+   }, { on: "on", off:"off"});
+   this.a4da22e13de8f =  this.addWidget("toggle","a4da22e13de8f", false, function(v){}, { on: "on", off:"off"});
+   this.a4da22e12356d =  this.addWidget("toggle","a4da22e12356d", false, function(v){}, { on: "on", off:"off"});
+   this.a4da22e12724f =  this.addWidget("toggle","a4da22e12724f", true, function(v){}, { on: "on", off:"off"}); 
+   this.addOutput("zone1","number");
+  this.properties = { precision: 1 };
+ }
+ Stage1tag.title = "Tag";
+ Stage1tag.prototype.onConnectionsChange  = function(inputoutput,slot,bolln,linkinfo, inputinfo ) {
+      nodeSum_l3.connect(0, nodeSum_l4,0);
+      nodeSum_l4.connect(0, nodeSum_l5,0);
+      //nodeSum_l2.connect(0, nodeSum_l3,0);
+     console.log(this.a4da22e13e6f.name +"--"+this.a4da22e13e6f.value);
+      console.log(this.a4da22e13de8f.name +"--"+this.a4da22e13de8f.value);
+      console.log(this.a4da22e12356d.name+"--"+this.a4da22e12356d.value);
+      console.log(this.a4da22e12724f.name+"--"+this.a4da22e12724f.value);
+      // if(bolln) {
+      //    console.log(this.getTitle() + "-"+inputinfo.name+"-"+ "Node connected");
+      // } else {
+      //    console.log(this.getTitle() + "-"+inputinfo.name+"-"+ "Node removed");
+      // }
+ }
+
+
+ 
+ function Stage2onentry() {
+   //  this.addInput("Zone","number");
+    this.addInput("On Entry","number","multiple");
+   // this.addInput("button","button","multiple");
+   //  this.addInput("Reset","number");
+  
+	 this.addWidget("combo","Zone","Zone_0001",{values:["Zone_0001","Zone_0002","Zone_0003","Zone_0004"]});
+    this.addOutput("Trigger","number");
+    this.properties = { precision: 1 };
+ }
+ Stage2onentry.title = "ON Entry";
+
+
+ function emailbody() {
+    this.addInput("Email body","number");
+    this.addOutput("Email target","number");
+    this.addWidget("text",'','');
+    this.properties = { precision: 1 };
+ }
+ emailbody.title = "Email";
+
+ function emailrecipient() {
+    this.addInput("Email recipient","number");
+    this.addWidget("text",'aaaa1','bbb1');
+    this.properties = { precision: 1 };
+ }
+ emailrecipient.title = "Email recipient" ;
+
+ /* multiply node end */
+      // register in the system
+      // LiteGraph.registerNodeType("basic/sum", MyAddNode );
+      // LiteGraph.registerNodeType("basic/customxyz", MyMultiplyNode );
+     //LiteGraph.registerNodeType("basic/stage1zone", Stage1zone );
+     LiteGraph.registerNodeType("basic/stage1tag", Stage1tag );
+     LiteGraph.registerNodeType("basic/stage2onentry", Stage2onentry );
+     LiteGraph.registerNodeType("basic/emailbody", emailbody ); 
+     LiteGraph.registerNodeType("basic/emailrecipient", emailrecipient ); 
+
+     
+      /** client view */
+      // const nodeSum_l1 = LiteGraph.createNode("basic/stage1zone");
+      // nodeSum_l1.pos = [60, 150];
+      // graph.add(nodeSum_l1);
+
+
+      const nodeSum_l2 = LiteGraph.createNode("basic/stage1tag");
+      nodeSum_l2.pos = [100, 110];
+      graph.add(nodeSum_l2);
+
+
+      const nodeSum_l3 = LiteGraph.createNode("basic/stage2onentry");
+      nodeSum_l3.pos = [400, 106];
+      graph.add(nodeSum_l3);
+
+
+      const nodeSum_l4 = LiteGraph.createNode("basic/emailbody");
+      nodeSum_l4.pos = [700, 130];
+      graph.add(nodeSum_l4);
+      
+      const nodeSum_l5 = LiteGraph.createNode("basic/emailrecipient");
+      nodeSum_l5.pos = [1000, 100];
+      graph.add(nodeSum_l5);
+      
+
+
+      //nodeSum_l1.connect(0,nodeSum_l3,0);
+     // nodeSum_l2.connect(0, nodeSum_l3,1);
+      // //nodeSum_l2.connect(0, nodeSum_l3,0)
+
+      //nodeSum_l3.connect(0, nodeSum_l4,0);
+     //  nodeSum_l4.connect(0, nodeSum_l5,0);
+      
+/* combo dropdown */
+      LGraphCanvas.node_colors = {
+        red: { color: "#322", bgcolor: "#533", groupcolor: "#A88" },
+        brown: { color: "#332922", bgcolor: "#593930", groupcolor: "#b06634" },
+        green: { color: "#232", bgcolor: "#353", groupcolor: "#8A8" },
+        blue: { color: "#223", bgcolor: "#335", groupcolor: "#88A" },
+        pale_blue: {color: "#2a363b",bgcolor: "#3f5159",groupcolor: "#3f789e"
+        },
+        cyan: { color: "#233", bgcolor: "#355", groupcolor: "#8AA" },
+        purple: { color: "#323", bgcolor: "#535", groupcolor: "#a1309b" },
+        yellow: { color: "#432", bgcolor: "#653", groupcolor: "#b58b2a" },
+        black: { color: "#222", bgcolor: "#000", groupcolor: "#444" }
+    };
+/* combo dropdown */
+
+      
+
+      graph.start();
+
+      /**/
+
+  
+
+
+    </script> 
+
+</body>
+</html>

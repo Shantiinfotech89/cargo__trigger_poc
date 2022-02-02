@@ -108,7 +108,6 @@
          */
 
         registerNodeType: function(type, base_class) {
-           
             if (!base_class.prototype) {
                 throw "Cannot register a simple object, it must be a class with a prototype";
             }

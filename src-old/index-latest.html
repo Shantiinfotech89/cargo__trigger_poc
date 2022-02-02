@@ -19,36 +19,34 @@
   <script>
     var graph = new LGraph();
     var canvas = new LGraphCanvas("#mycanvas", graph);
-
   function Stage1tag() {
-      this.addInput("Tags","number"); 
-      this.a4da22e13e6f =  this.addWidget("toggle",'a4da22e13e6f', true, function(v){
-         nodeSum_l2.connect(0, nodeSum_l3,0);  
-      }, { on: "on", off:"off"});
-      this.a4da22e13de8f =  this.addWidget("toggle","a4da22e13de8f", false, function(v){
-         nodeSum_l2.connect(0, nodeSum_l3,0);  
-      }, { on: "on", off:"off"});
-      this.a4da22e12356d =  this.addWidget("toggle","a4da22e12356d", false, function(v){
-         nodeSum_l2.connect(0, nodeSum_l3,0);  
-      }, { on: "on", off:"off"});
-      this.a4da22e12724f =  this.addWidget("toggle","a4da22e12724f", true, function(v){
-         nodeSum_l2.connect(0, nodeSum_l3,0);  
-      }, { on: "on", off:"off"}); 
-      this.addOutput("zone1","number");
-      this.properties = { precision: 1 };
-  } 
-  Stage1tag.title = "Tag";
-  Stage1tag.prototype.onConnectionsChange = function(inputoutput ="",slot="",bolln="",linkinfo="", inputinfo="" ) {
-      nodeSum_l3.connect(0, nodeSum_l4,0);
-      nodeSum_l4.connect(0, nodeSum_l5,0);
-      console.log("Above inputs");
-      console.log(this.a4da22e13e6f);
-      console.log(this.a4da22e13e6f.name +"--"+this.a4da22e13e6f.value);
-      console.log(this.a4da22e13de8f.name +"--"+this.a4da22e13de8f.value);
-      console.log(this.a4da22e12356d.name+"--"+this.a4da22e12356d.value);
-      console.log(this.a4da22e12724f.name+"--"+this.a4da22e12724f.value);
-  }
+   this.addInput("Tags","number");
+   this.a4da22e13e6f =  this.addWidget("toggle",'a4da22e13e6f', true, function(v){
+      nodeSum_l2.connect(0, nodeSum_l3,0);  
+   }, { on: "on", off:"off"});
+   this.a4da22e13de8f =  this.addWidget("toggle","a4da22e13de8f", false, function(v){
+      nodeSum_l2.connect(0, nodeSum_l3,0);  
+   }, { on: "on", off:"off"});
+   this.a4da22e12356d =  this.addWidget("toggle","a4da22e12356d", false, function(v){
+      nodeSum_l2.connect(0, nodeSum_l3,0);  
+   }, { on: "on", off:"off"});
+   this.a4da22e12724f =  this.addWidget("toggle","a4da22e12724f", true, function(v){
+      nodeSum_l2.connect(0, nodeSum_l3,0);  
+   }, { on: "on", off:"off"}); 
+   this.addOutput("zone1","number");
+  this.properties = { precision: 1 };
+ }
+ Stage1tag.title = "Tag";
+ Stage1tag.prototype.onConnectionsChange = function(inputoutput,slot,bolln,linkinfo, inputinfo ) {
+   // nodeSum_l2.connect(0, nodeSum_l3,0);  
+     nodeSum_l3.connect(0, nodeSum_l4,0);
+     nodeSum_l4.connect(0, nodeSum_l5,0);
+     console.log(this.a4da22e13e6f.name +"--"+this.a4da22e13e6f.value);
+     console.log(this.a4da22e13de8f.name +"--"+this.a4da22e13de8f.value);
+     console.log(this.a4da22e12356d.name+"--"+this.a4da22e12356d.value);
+     console.log(this.a4da22e12724f.name+"--"+this.a4da22e12724f.value);
 
+ }
  function Stage2onentry() {
     this.addInput("On Entry","number","multiple");
     this.currentzone = this.addWidget("combo","Zone","Zone_0001",function(v){
@@ -75,15 +73,14 @@
     this.addWidget("text",'aaaa1','bbb1');
     this.properties = { precision: 1 };
  }
-      emailrecipient.title = "Email recipient" ;
-     
+ emailrecipient.title = "Email recipient" ;
      LiteGraph.registerNodeType("basic/stage1tag", Stage1tag );
      LiteGraph.registerNodeType("basic/stage2onentry", Stage2onentry );
      LiteGraph.registerNodeType("basic/emailbody", emailbody ); 
      LiteGraph.registerNodeType("basic/emailrecipient", emailrecipient ); 
 
      const nodeSum_l2 = LiteGraph.createNode("basic/stage1tag");
-     nodeSum_l2.pos = [100, 120];
+     nodeSum_l2.pos = [100, 110];
      graph.add(nodeSum_l2);
 
      const nodeSum_l3 = LiteGraph.createNode("basic/stage2onentry");
